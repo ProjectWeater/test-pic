@@ -8,7 +8,7 @@
 		// Set Path to Font File
 		$font_path = 'arial.ttf';	  
 		// Set Text to Be Printed On Image
-		$text = "Hello World";	  
+		$text = "Hello to test";	  
 		// Print Text On Image
 		imagettftext($img, 25, 0, 75, 300, $white, $font_path, $text);  
 		// Send Image to Browser
