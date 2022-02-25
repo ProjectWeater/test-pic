@@ -13,7 +13,7 @@ $image = imagecreatefromjpeg($sourcelocation);
   
 //destination file name where you want to store the new image
 
-  $output = "images/text.jpg";
+  $output = "image/text.jpg";
 
  
  
