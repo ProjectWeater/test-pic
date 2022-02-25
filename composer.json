@@ -1,1 +1,21 @@
-{ "require": { "gd": "*" } }
+{
+    "name": "projectweater/test-pic",
+    "description": "Add text to an existing or new image",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "projectweather\\TextToImage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "projectweather",
+            "email": "thanathorn.ron@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "ext-gd": "*"
+    }
+}

@@ -1,52 +1,24 @@
-<?php
+<?php declare(strict_types=1);
 
-  //select the image on which you would like to write the text
- 
- $sourcelocation = ('pic.jpg');
+use Ghostff\TextToImage\Text;
+use Ghostff\TextToImage\TextToImage;
 
-  
-  
-//create the image from existing image
-  
-$image = imagecreatefromjpeg($sourcelocation);
+require_once __DIR__ . '/src/TextToImage.php';
+require_once __DIR__ . '/src/Text.php';
 
-  
-//destination file name where you want to store the new image
+$text1 = Text::from('Text One')->color(231, 81, 0);
 
-  $output = "image/text.jpg";
+$text2 = Text::from('Text Two')->color(130, 146, 145)->position(260, 35);
 
- 
- 
- //declaring the colors
-  
-$white = imagecolorallocate($image,255,255,255);
-  
-$black = imagecolorallocate($image,0,0,0);
+$text3 = (new Text('Text Three'))->set(150, 0, [0, 0, 252], '', 10, 1, 1, [50, 205, 50]);
 
- 
- //font size of the text
+$text  = Text::from('Text!')
+            ->position(170, 150)
+            ->font(20, __DIR__ . '/font/arial.ttf')
+            ->shadow(2, 2, [255])
+            ->color(255,255, 0)
+            ->rotate(20);
 
-  $font_size = 40;
+header("Content-Type: image/png");
 
-
- 
- //rotation of the text
-  
-$rotation = 0;
-
-  
-//font style of the text.we need to give the location of.ttf file
- 
- $font = "font\arial.ttf";
-
- 
- //text you want to add to the image
- 
- $text="Hello";
-$text1 = imagettftext($image,$font_size,$rotation,25, 0, 75, 300,$white,$font,$text);
-
- 
- imagejpeg($image,$output);
-
-
-?>
+echo (new TextToImage(__DIR__ . '/pic.png'))->addTexts($text1, $text2, $text3, $text)->render();
